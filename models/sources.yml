@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: football_data
+    project: rob-portfolio-390000
+    schema: football_data
+    tables:
+      - name: draft_results
+      - name: weekly_stats_2022
+      - name: weekly_stats_2021
