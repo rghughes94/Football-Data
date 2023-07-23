@@ -5,6 +5,7 @@
 }}
 
 select 
+
     draft_year,
     rnd as draft_rnd,
     pick as draft_pick_num,
