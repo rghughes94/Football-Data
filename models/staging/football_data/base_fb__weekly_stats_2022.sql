@@ -5,8 +5,9 @@
 }}
 
 select 
-    player_id,
+    _table_suffix as season,
     
+    player_id,
     player_name,
     team,
     position,
@@ -26,4 +27,5 @@ select
     def_fumb_recovered,
     fantasy_pts
 
-from {{ source('football_data','weekly_stats_2022') }}
+from {{ source('football_data','weekly_stats') }}
+where _table_suffix = '2022'
