@@ -4,8 +4,28 @@
   )
 }}
 
-{{ dbt_utils.union_relations(
+select 
+    
+    cast(_table_suffix as integer) as season,
+    
+    player_id,
+    player_name,
+    team,
+    position,
+    week_num,
+    opponent,
+    pass_yds,
+    pass_td,
+    pass_int,
+    rush_yds,
+    rush_td,
+    recs,
+    rec_yds,
+    rec_td,
+    def_sack,
+    def_int,
+    def_fumb_forced,
+    def_fumb_recovered,
+    fantasy_pts
 
-    relations=[ref('base_fb__weekly_stats_2022'), ref('base_fb__weekly_stats_2021')]
-
-)}}
+from {{ source('football_data','weekly_stats') }}
