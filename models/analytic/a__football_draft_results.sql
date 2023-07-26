@@ -1,6 +1,6 @@
 {{
   config(
-    materialized = "ephemeral"
+    materialized = "table"
   )
 }}
 
@@ -15,4 +15,4 @@ select
     draft_position,
     college 
 
-from {{ ref('stg_fb__draft_results') }}
+from {{ ref('int_fb__draft_results') }}
