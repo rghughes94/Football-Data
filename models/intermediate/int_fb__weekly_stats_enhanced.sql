@@ -5,12 +5,13 @@
 }}
 
 select
-    
-    season,
+
+    player_id,
     player_name,
-    team,
-    position,
     
+    position,
+    team,
+    season,
     week_num,
     opponent,
 
