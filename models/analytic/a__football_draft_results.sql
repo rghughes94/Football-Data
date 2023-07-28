@@ -5,7 +5,7 @@
 }}
 
 with cte_career_stats as ( 
--- This CTE aggregates career stats for each drafted player. Drafted players who never appear in weekly stats will have null values
+-- This cte aggregates career stats for each drafted player. Drafted players who never appear in weekly stats will have null values
 select 
     player_name,
     position,
@@ -19,6 +19,8 @@ from {{ ref('int_fb__weekly_stats_enhanced') }}
 ) 
 
 select 
+
+    sk_id,
 
     dra.draft_year,
     dra.draft_rnd,

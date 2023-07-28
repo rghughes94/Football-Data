@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: a__football_draft_results
+    columns:
+      - name: sk_id
+        description: PK - surrogate key combining season year, player_id, and week_number
+        tests:
+          - unique
+          - not_null
+
+  - name: a__football_weekly_stats
+    columns:
+      - name: sk_id
+        description: PK - surrogate key combining draft year and pick number
+        tests:
+          - unique
+          - not_null

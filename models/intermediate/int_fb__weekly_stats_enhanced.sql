@@ -15,6 +15,7 @@ select
     team,
     season,
     week_num,
+    (season||'-'||week_num) as game_id,
     opponent,
 
     pass_yds,
