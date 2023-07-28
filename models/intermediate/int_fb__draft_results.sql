@@ -7,6 +7,8 @@
 
 select 
 
+    sk_id,
+    
     draft_year,
     draft_rnd,
     draft_pick_num,

@@ -6,6 +6,8 @@
 
 select
 
+    sk_id,
+
     player_id,
     player_name,
     
