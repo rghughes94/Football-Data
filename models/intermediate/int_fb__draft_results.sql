@@ -1,20 +1,22 @@
 {{
   config(
-    materialized = "ephemeral"
+    materialized = "view"
   )
 }}
 
 
 select 
 
-    sk_id,
+    dra.sk_id,
     
-    draft_year,
-    draft_rnd,
-    draft_pick_num,
-    draft_team,
-    player_name,
-    draft_position,
-    college 
+    dra.draft_year,
+    dra.draft_rnd,
+    dra.draft_pick_num,
+    dra.draft_team,
+    dra.player_name,
+    dra.draft_position,
+    dra.college
 
-from {{ ref('stg_fb__draft_results') }}
+from {{ ref('stg_fb__draft_results') }} dra 
+
+

@@ -1,0 +1,6 @@
+version: 2
+
+seeds:
+  - name: s_football_dupe_player_draft_pick_nums
+    config:
+      column_types: {player_id: string}

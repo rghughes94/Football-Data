@@ -7,6 +7,7 @@
 with cte_draft_year as ( 
 -- This cte pulls in each player's Draft info for analysis. Players in years before we have data will have null values
 select 
+    
     player_name,
     draft_year,
     draft_rnd,
@@ -61,11 +62,15 @@ select
     (sta.season = dra.draft_year) as is_rookie_season,
     (cast(sta.season as integer) - cast(dra.draft_year as integer) + 1) as career_season_num,
 
-    row_number() over (partition by sta.player_name, sta.position, sta.season order by sta.week_num asc ) as season_game_num
+    row_number() over (partition by sta.player_name, sta.position, sta.season order by sta.week_num asc ) as season_game_num,
     -- Teams have 1 bye-week (rest week) each season. This counts the number of games each player has played in each season to avoid missing values in trend view
 
 from {{ ref('int_fb__weekly_stats_enhanced') }} sta 
 
 left join cte_draft_year dra 
-    on sta.player_name = dra.player_name 
-    and sta.position = dra.draft_position
+    on case 
+        when sta.is_dupe_name is true 
+            then (sta.dupe_draft_year = dra.draft_year 
+            and sta.dupe_pick_num = dra.draft_pick_num)
+        else sta.player_name = dra.player_name
+    end  
