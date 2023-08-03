@@ -40,7 +40,7 @@ select
     -- Use a seed file to manually assign their unique draft year and pick num combination
     -- mark as 'dupe' for later joining
 
-    dup.draft_year is not null as is_dupe_name,
+    dup.player_id is not null as is_dupe_name,
     cast(dup.draft_year as string) as dupe_draft_year,
     dup.pick_num as dupe_pick_num
 
