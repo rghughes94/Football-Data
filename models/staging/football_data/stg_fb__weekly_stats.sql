@@ -6,9 +6,10 @@
 
 select 
     
-    cast(_table_suffix as integer) as season,
+    {{ dbt_utils.generate_surrogate_key(['_table_suffix', 'player_id','week_num' ]) }} as sk_id, 
     
-    player_id,
+    cast(_table_suffix as string) as season,
+    cast(player_id as string) as player_id,
     player_name,
     team,
     position,

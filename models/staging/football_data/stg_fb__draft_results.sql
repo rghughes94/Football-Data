@@ -1,12 +1,14 @@
 {{
-  config(
+config(
     materialized = "view"
   )
 }}
 
 select 
 
-    draft_year,
+    {{ dbt_utils.generate_surrogate_key(['draft_year', 'pick'])}} as sk_id,
+    
+    cast(draft_year as string) as draft_year,
     rnd as draft_rnd,
     pick as draft_pick_num,
     tm as draft_team,
