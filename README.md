@@ -1,6 +1,6 @@
-# portfolio
+# Rob Hughes Data Project Portfolio
 
-Portfolio of dbt models for use in personal data projects.  
+dbt project for use in personal data projects  
 
 ## Football Data Project
 NFL Draft results and Weekly Fantasy Football Scores from the last 10 seasons
