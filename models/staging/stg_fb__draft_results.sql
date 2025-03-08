@@ -16,4 +16,4 @@ select
     pos as draft_position,
     college 
 
-from {{ source('football_data','draft_results') }}
+from {{ ref('s_draft_results') }}
