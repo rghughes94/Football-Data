@@ -57,3 +57,6 @@ select
     fantasy_pts
 
 from cte_union_all
+
+where position in ('FB','RB','WR','TE','QB')
+-- only strack stats for Offensive Skill positions where they are most relevant
